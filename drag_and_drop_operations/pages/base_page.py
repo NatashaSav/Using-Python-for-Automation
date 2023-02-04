@@ -9,8 +9,5 @@ class BasePage:
     def get_title(self):
         return self.browser.title
 
-    def find_element_by_locator_name(self, *locator):
-        return self.browser.find_element(*locator)
-
     def get_result_displayed_text(self, *locator):
-        return self.find_element_by_locator_name(*locator).text
+        return self.browser.find_element(*locator).text

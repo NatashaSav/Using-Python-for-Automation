@@ -5,13 +5,13 @@ Feature: Cucumber Basket
   So that I don't drop them all.
 
   Background:
-    Given the basket has "5" cucumbers
+    Given the basket has 5 cucumbers
 
 
   @add
   Scenario Outline: Add cucumbers to a basket
-    When "<some>" cucumbers are added to the basket
-    Then the basket contains "<total>" cucumbers
+    When <some> cucumbers are added to the basket
+    Then the basket contains <total> cucumbers
   Examples:
     | some | total |
     |  4   |   9   |
@@ -20,8 +20,8 @@ Feature: Cucumber Basket
 
 @remove
   Scenario Outline: Remove cucumbers from a basket
-    When "<some>" cucumbers are removed from the basket
-    Then the basket contains "<total>" cucumbers
+    When <some> cucumbers are removed from the basket
+    Then the basket contains <total> cucumbers
   Examples:
      | some | total |
      |  3   |   2   |

@@ -5,11 +5,17 @@ Feature:  Form demo scenarios
       And I open the main page
 
 
-    Scenario: Fill input fields by text
-      When the user type "Hello World"
+    Scenario Outline: Fill input fields by text
+      When the user type "<typed_phrase>"
       Then the user find the "Show Message" button in the single input field
       And the user click Show Message button
-      Then "Hello World" message is displayed on page
+      Then "<appeared_phrase>" message is displayed on page
+      Examples:
+        | typed_phrase   | appeared_phrase |
+        | Hello world    |  Hello world    |
+        | Saturday       | Saturday        |
+        | image          | image           |
+
 
       Scenario: Fill two input fields by text
         When the user type "10" in field named a

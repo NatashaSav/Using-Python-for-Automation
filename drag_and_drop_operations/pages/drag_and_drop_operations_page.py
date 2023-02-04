@@ -1,5 +1,4 @@
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.color import Color
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -32,14 +31,8 @@ class DragAndDropOperationsPage(BasePage):
         return ActionChains(self.browser).drag_and_drop(self.drag_action(locator=locator.DRAG_ACTION),
                                                         self.drop_action(locator=locator.DROP_ACTION)).perform()
 
-    # To clarify
-    # why self.find_element_by_locator_name(Locators.DRAG_ACTION) DOESN'T WORK ???
-    # and  self.browser.find_element(By.XPATH, '//*[@id="box3"]') WORK
-    # def get_background_color(self):
-    #     return self.find_element_by_locator_name(Locators.DRAG_ACTION).value_of_css_property('background-color')
-
     def get_background_color(self):
-        return self.browser.find_element(By.XPATH, '//*[@id="box3"]').value_of_css_property('background-color')
+        return self.browser.find_element(*Locators.DRAG_ACTION).value_of_css_property('background-color')
 
     def get_rgb_color(self):
         return Color.from_string(self.get_background_color()).rgb
