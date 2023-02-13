@@ -9,9 +9,11 @@ def base_function(browser, config):
     return MainPage(browser=browser, url=config['URLS']['MAIN_URL'])
 
 
-@given('I open the main page')
-def open_page(base_function):
+@given(parsers.parse('I open "{url}" page'), converters={"url": str})
+def open_page(base_function, url):
     base_function.load_page()
+    current_url = base_function.browser.current_url
+    assert url == current_url, f"current_url {current_url} and expected url {url} don't match"
 
 
 @when(parsers.parse('the user type "{text}"'), converters={"text": str})
@@ -32,7 +34,7 @@ def input_number_in_field_b(base_function, number):
 @then(parsers.parse('"{number}" number is displayed on the page'), converters={"number": str})
 def get_total_number(base_function, number):
     total_number = base_function.get_total_number()
-    assert number == total_number, "different numbers are displayed on the page"
+    assert number == total_number, f"expected to get {number}, but {total_number} number displayed on the page"
 
 
 @then('the user click Show Message button')
@@ -64,4 +66,4 @@ def click_get_total_button(base_function):
 @then(parsers.parse('"{message}" message is displayed on page'), converters={"message": str})
 def check_appeared_message(base_function, message):
     actual_message = base_function.get_text_from_message()
-    assert (message == actual_message), "different messages are displayed on the page"
+    assert (message == actual_message), f" expected {message}, but {actual_message} displayed on the page"

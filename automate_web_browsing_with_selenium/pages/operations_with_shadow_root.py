@@ -1,7 +1,3 @@
-import time
-
-from selenium.webdriver.chrome.webdriver import WebDriver
-
 from automate_web_browsing_with_selenium.pages.base_page import BasePage
 from automate_web_browsing_with_selenium.pages.locators_page import Locators
 
@@ -25,3 +21,7 @@ class OperationsWithShadowRoot(BasePage):
         launch_menu_btn = self.wait_until_element_be_clickable(locator=menu_btn, timeout=60)
         self.sleep_during_specific_time()
         launch_menu_btn.click()
+
+    def get_sign_in_value(self):
+        earth_app = self.driver.find_element(*Locators.EARTH_APP)
+        return earth_app.text

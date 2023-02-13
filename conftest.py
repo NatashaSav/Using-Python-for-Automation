@@ -1,13 +1,13 @@
 import json
+import time
+
 import selenium.webdriver
 import pytest
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from pathlib import Path
 
-from automate_web_browsing_with_selenium.pages.base_page import BasePage
-
-path_to_file = Path(__file__).parent.absolute().joinpath('config.json')
+path_to_file = Path().joinpath('..\\..\\config.json').absolute()
 
 
 @pytest.fixture(scope='session')
@@ -23,6 +23,6 @@ def browser():
     driver = selenium.webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.implicitly_wait(10)
     yield driver
-    BasePage.sleep_during_specific_time()
+    time.sleep(5)
     driver.quit()
     return driver

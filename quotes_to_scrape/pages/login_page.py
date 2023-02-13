@@ -1,3 +1,5 @@
+import time
+
 from quotes_to_scrape.pages.locators_page import Locators
 
 

@@ -2,10 +2,9 @@ Feature: Quoters to scrape
 
   Background:
     Given I have an url
-    And I open the main page
+    And I open "http://quotes.toscrape.com/" page
 
   Scenario: Login to the website
-    Then I check that the main page has "http://quotes.toscrape.com/" url
     When I check that status code of the page is "200"
     Then I check that current page has title "Quotes to Scrape"
     Then I have Login button

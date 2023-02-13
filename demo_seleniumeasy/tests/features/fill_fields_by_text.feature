@@ -2,7 +2,7 @@ Feature:  Form demo scenarios
 
   Background:
        Given I have an url
-      And I open the main page
+      And I open "https://demo.seleniumeasy.com/basic-first-form-demo.html" page
 
 
     Scenario Outline: Fill input fields by text
