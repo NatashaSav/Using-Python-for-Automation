@@ -1,0 +1,11 @@
+{
+  "URLS": {
+    "URL": "https://scrapingclub.com/",
+    "MAIN_URL": "https://scrapingclub.com/exercise/list_basic/",
+    "BLOG_URL": "https://scrapingclub.com/blog/",
+    "ABOUT_URL": "https://scrapingclub.com/about/",
+    "CONTACT_URL": "https://scrapingclub.com/contact/",
+    "E_BOOK_URL": "https://leanpub.com/ultimateguidetoscrapy/",
+    "SUBSCRIBE_URL": "https://michaelyin.us16.list-manage.com/subscribe?u=2c0b7502277ae2fac6df74a95&id=9b75301b76"
+  }
+}
