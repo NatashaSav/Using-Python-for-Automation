@@ -2,7 +2,7 @@ Feature: Quoters to scrape
 
   Background:
     Given I have an url
-    And I open "http://quotes.toscrape.com/" page
+    And I open the main page
 
   Scenario: Login to the website
     When I check that status code of the page is "200"

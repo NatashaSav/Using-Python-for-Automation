@@ -12,11 +12,12 @@ def main_function(browser, config):
     return DragAndDropOperationsPage(browser=browser, url=config['URLS']['MAIN_URL'])
 
 
-@given(parsers.parse('I open "{url}" page'), converters={"url": str})
-def open_page(main_function, url):
+@given(parsers.parse('I open the main page'))
+def open_page(main_function, config):
     main_function.load_page()
     current_url = main_function.browser.current_url
-    assert url == current_url, f"current_url {current_url} and expected url {url} don't match"
+    assert config['URLS']['MAIN_URL'] == current_url, \
+        f"expected url {config['URLS']['MAIN_URL']} and {current_url} current url don't match"
 
 
 @when(parsers.parse('I check that status code of the page is "{status_code}"'), converters={"status_code": int})

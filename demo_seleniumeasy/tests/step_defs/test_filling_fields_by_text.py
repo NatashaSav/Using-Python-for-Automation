@@ -9,11 +9,12 @@ def base_function(browser, config):
     return MainPage(browser=browser, url=config['URLS']['MAIN_URL'])
 
 
-@given(parsers.parse('I open "{url}" page'), converters={"url": str})
-def open_page(base_function, url):
+@given(parsers.parse('I open the main page'))
+def open_page(base_function, config):
     base_function.load_page()
     current_url = base_function.browser.current_url
-    assert url == current_url, f"current_url {current_url} and expected url {url} don't match"
+    assert config['URLS']['MAIN_URL'] == current_url, \
+        f"expected url {config['URLS']['MAIN_URL']} and {current_url} current url don't match"
 
 
 @when(parsers.parse('the user type "{text}"'), converters={"text": str})
